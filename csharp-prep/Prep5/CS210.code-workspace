@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "../../../CS110"
+		},
+		{
+			"path": "../../../wdd130"
+		},
+		{
+			"path": "../../../cse111"
+		},
+		{
+			"name": "wdd131",
+			"path": "../../../wdd131"
+		},
+		{
+			"name": "cse210-projects",
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "wdd131"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			
+
+		]
+	}
+}
