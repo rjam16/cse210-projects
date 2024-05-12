@@ -3,17 +3,11 @@ using System.Xml;
 
 public class Entry
 {
-    DateTime currentTime = DateTime.Now;
-    public Dt()
-    {
-        _date = currentTime;
-    }
-    public string _date = currentTime;
+    public string _date = "";
     public string _promptText = "";
     public string _entryText = "";
     public void Display()
     {
-        Console.Write($"Date:{_date}, Prompt:{_promptText}, Entry: {_entryText}");
-
+        Console.Write($"Date:{_date}; Prompt:{_promptText}; Entry: {_entryText}");
     }
 }

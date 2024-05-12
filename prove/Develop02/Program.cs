@@ -12,24 +12,24 @@ class Program
         Console.Write("Welcome to the Journal Program!");
         while (reply != "5")
         {
-            Console.Write("Please select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
-            Console.Write("What would you like to do? ");
+            Console.Write("\nPlease select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
+            Console.Write("\nWhat would you like to do? ");
             reply = Console.ReadLine();
             if (reply == "1")
             {
-                Journal.AddEntry(anEntry);
+                theJournal.AddEntry();
             }
             else if (reply == "2")
             {
-                Journal.DisplayAll();
+                theJournal.DisplayAll();
             }
             else if (reply == "3")
             {
-                Journal.LoadFromFile();
+                theJournal.LoadFromFile();
             }
             else if (reply == "4")
             {
-                Journal.SaveToFile(fileName);
+                theJournal.SaveToFile();
             }
             else
             {
