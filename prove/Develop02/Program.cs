@@ -2,7 +2,7 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 
-class Program
+class myProgram
 {
     static void Main(string[] args)
     {
