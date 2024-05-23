@@ -1,9 +1,10 @@
 using System;
 
-class Program
+class myProgram
 {
     static void Main(string[] args)
     {
+        List<string> _activities = new List<string>();
         string reply = "0";
         Console.Write("Welcome to the Mindfulness Program!");
         while (reply != "5")
@@ -25,12 +26,29 @@ class Program
             }
             else if (reply == "4")
             {
-                ListingActivity.Run();
+                Console.Write("Enter the filename you wish to use: ");
+                string filename = Console.ReadLine();
+                string [] lines = System.IO.File.ReadAllLines(filename);
+                foreach (string line in lines)
+                {
+                    string[] parts =line.Split(": ");
+
+                    string name = parts[0];
+                    string duration = parts[1];
+                }
             }
-           
             else if (reply == "5")
             {
-                ListingActivity.Run();
+                Console.Write("Enter the filename you wish to use: ");
+                string filename = Console.ReadLine();
+                using (StreamWriter outputFile = new StreamWriter(filename))
+                {
+                    foreach (Activity a in _activities) 
+                    {
+                        Console.Write($"{name}:{duration}");
+                    }
+                }
+                Console.Write($"Session saved to {filename}");
             }
             else
             {

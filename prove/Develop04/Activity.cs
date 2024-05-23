@@ -9,16 +9,82 @@ class Activity {
         _description = description;
         _duration = duration;
     }
+    public string GetActivityName()
+    {
+        return _name;
+    }
+    public string GetDescription() 
+    {
+        return _description;
+    }
+    public int GetDuration()
+    {
+        Console.Write("How long, in seconds, would you like for your session? ");
+        _duration = int.Parse(Console.ReadLine());
+        return _duration;
+    }
+    public void SetActivityName(string name)
+    {
+        _name = name;
+    }
+    public void SetDescription(string description)
+    {
+        _description = description;
+    }
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
+    }
+    public static void DisplayStartingMessage()
+    {
+        Console.WriteLine(name);
+    }
 
-    static void DisplayStartingMessage()
-    {}
+    public static void DisplayEndingMessage()
+    {
+        Console.WriteLine("Well done!");
+        Console.WriteLine($"You completed {duration} of the {name}.");
+    }
 
-    static void DisplayEndingMessage()
-    {}
+    public static void ShowSpinner(int seconds)
+    {
+        while(seconds != 0)
+        {
+            Console.Write("|");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            Console.Write("/");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            Console.Write("--");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            Console.Write(@"\");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            Console.Write("|");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            Console.Write("/");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            Console.Write("--");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            Console.Write(@"\");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+    }
 
-    static void ShowSpinner(int seconds)
-    {}
-
-    static void ShowCountDown(int seconds)
-    {}
+    public static void ShowCountDown(int seconds)
+    {
+        CountdownEvent CountDown = new CountdownEvent(3);
+         for (int i = 0; i < seconds; i++)
+         {
+            Console.WriteLine($"{seconds}");
+            CountDown.Signal();
+            Thread.Sleep(1000);
+         }
+    }
 }

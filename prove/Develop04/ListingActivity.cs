@@ -3,6 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 class ListingActivity : Activity
 {
     private int _count;
@@ -21,9 +22,11 @@ class ListingActivity : Activity
 
     public static void Run()
     {
-        ListingActivity("Welcome to the Listing Activity.", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", duration, count, prompts);
+        DisplayStartingMessage();
+        Activity.ShowSpinner(duration);
         GetRandomPrompt();
         GetListFromUser();
+        DisplayEndingMessage();
     }
 
     public static void GetRandomPrompt()
@@ -37,6 +40,7 @@ class ListingActivity : Activity
     {
         bool end = false;
         List<string> userInput = new List<string>();
+        int listSize = 0;
         while (!end)
         {
             Console.Write("Please Enter Your List(type quit when finished):");
@@ -48,8 +52,11 @@ class ListingActivity : Activity
             else
             {
                 userInput.Add(answer);
+                listSize += 1;
             }
         }
+        string size = "You have {listSize} items in your list.";
+        userInput.Add(size);
         return userInput;
     }
 }
