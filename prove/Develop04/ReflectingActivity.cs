@@ -24,8 +24,10 @@ class ReflectingActivity : Activity
     public static void Run()
     {
         DisplayStartingMessage();
-        
-
+        ShowSpinner(Activity.GetDuration());
+        DisplayPrompt();
+        DisplayQuestions();
+        DisplayEndingMessage();
     }
 
     public static string GetRandomPrompt()

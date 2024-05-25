@@ -1,18 +1,18 @@
 class BreathingActivity : Activity
 {
-    public BreathingActivity(string name, string description, int duration) 
+    public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
     {
         Console.Write("How long, in seconds, would you like for your session? ");
-        sessionTime = int.Parse(Console.ReadLine());
+        duration = int.Parse(Console.ReadLine());
     }
     public static  void Run()
     {
         DisplayStartingMessage();
         Console.WriteLine("Get Ready...");
 
-        while (duration != 0) 
+        while (Activity.GetDuration() != 0) 
         {
-            Activity.ShowSpinner(duration);
+            Activity.ShowSpinner(Activity.GetDuration());
             Console.WriteLine("Breathe in...");
             ShowCountDown(4);
             Thread.Sleep(3000);

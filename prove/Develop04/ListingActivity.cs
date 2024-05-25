@@ -23,7 +23,7 @@ class ListingActivity : Activity
     public static void Run()
     {
         DisplayStartingMessage();
-        Activity.ShowSpinner(duration);
+        ShowSpinner(Activity.GetDuration());
         GetRandomPrompt();
         GetListFromUser();
         DisplayEndingMessage();
