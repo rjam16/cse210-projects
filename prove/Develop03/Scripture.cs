@@ -1,34 +1,40 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 class Scripture {
     Reference _reference = new Reference();
     public List<Word> _words = new List<Word>();
-    public Scripture(string reference, string text)
-    {
-        _reference = reference;
+    public Scripture(string myReference, string text)
+    {   
+        public string myReference = Reference.GetDisplayText();
         public string text;
     }
-    public void HideRandomWords(){
+    public void HideRandomWords()
+    {
+        public string[] hiddenWords = '';
         hiddenWords.Clear();
-        string[] words = myScripture.Text.Split('');
+        public string[] words = _reference.Text.Split('');
         Random random = new Random();
-        private int numberToHide = Random.Next(1, words.Length);
+        public int numberToHide = Random.Next(1, words.Length);
         for (int i = 0; i< numberToHide; i++)
         {
-            int randomIndex = Random.Next(0, words.Length);
+           public int randomIndex = Random.Next(0, words.Length);
             if(!hiddenWords.Contains(words[randomIndex]))
             {
-                hiddenWords.Add(HideRandomWords[randomIndex]);
-                words[randomIndex] = "*****";
+              hiddenWords.Add(HideRandomWords[randomIndex]);
+                words[randomIndex] = Word.Hide();
             }
         }
     }
-    public string GetDisplayText(){
+    string GetDisplayText()
+    {
+        
+    }
+    bool IsCompletelyHidden()
+    {
 
     }
-    public bool IsCompletelyHidden(){
 
-    }
-}
+}    
