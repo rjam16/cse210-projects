@@ -8,8 +8,6 @@ class myProgram
     static void Main(string[] args)
     {
         private static List<string> hiddenWords = new List<string>();
-        ScriptureGenerator aScripture = new ScriptureGenerator();
-        myScripture = aScripture.GetRandomScripture();
         Scripture scripture = new Scripture();
         bool quit = false;
 

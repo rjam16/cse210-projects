@@ -3,13 +3,13 @@ class Reference {
     private static int _chapter;
     private static int _verse;
     private static int _endVerse;
-    public void OneVerse(string book, int chapter, int verse)
+    public Reference(string book, int chapter, int verse)
     {
         _book = book;
         _chapter = chapter;
         _verse = verse;
     }
-    public void MoreVerses(string book, int chapter, int verse, int endVerse)
+    public Reference(string book, int chapter, int verse, int endVerse)
     {
         _book = book;
         _chapter = chapter;

@@ -6,10 +6,16 @@ using System.Security.Cryptography.X509Certificates;
 class Scripture {
     Reference _reference = new Reference();
     public List<Word> _words = new List<Word>();
-    public Scripture(string myReference, string text)
+    public Scripture(string reference, string text)
     {   
-        public string myReference = Reference.GetDisplayText();
-        public string text;
+        ScriptureGenerator aScripture = new ScriptureGenerator();
+        string myScripture = aScripture.GetRandomScripture();
+        foreach (string word in myScripture)
+        {
+            string[] parts = word.Split(" '");
+
+            string _reference = parts[0];
+            string _text = parts[1];
     }
     public void HideRandomWords()
     {
