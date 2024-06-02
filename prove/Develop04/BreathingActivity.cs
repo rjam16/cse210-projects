@@ -2,20 +2,23 @@ class BreathingActivity : Activity
 {
     public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
     {
+        _name = "Welcome to the Breathing Activity.";
+        _description = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
         Console.Write("How long, in seconds, would you like for your session? ");
-        duration = int.Parse(Console.ReadLine());
+        _duration = int.Parse(Console.ReadLine());
     }
-    public static  void Run()
+    public static void Run()
     {
         DisplayStartingMessage();
         Console.WriteLine("Get Ready...");
-
-        while (Activity.GetDuration() != 0) 
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(GetDuration());
+        while (DateTime.Now < endTime)
         {
-            Activity.ShowSpinner(Activity.GetDuration());
+            ShowSpinner(GetDuration());
             Console.WriteLine("Breathe in...");
-            ShowCountDown(4);
-            Thread.Sleep(3000);
+            ShowCountDown(5);
+            Thread.Sleep(2000);
             Console.WriteLine("And breathe out...");
             ShowCountDown(6);
             Thread.Sleep(2000);

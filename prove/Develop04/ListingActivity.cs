@@ -6,34 +6,39 @@ using System.ComponentModel;
 using System.Drawing;
 class ListingActivity : Activity
 {
-    private int _count;
+    protected static int _count;
     private static string[] input = {"List your favorite things: ", "Create a Dream Travel List: ", "Write a List of Hobbies to Try: ", "List some Family Traditions or Family Memories: ", "Write Down Things That Make You Happy: ", "Write Things That Make You Sad: ", "Plan Activities for a Rainy Day: ", "Write More Self-Care Ideas: "};
-    private static List<string> _prompts = new List<string>(input);
+    protected static List<string> _prompts = new List<string>(input);
 
     public ListingActivity(string name, string description, int duration, int count, List<string> prompts) : base(name, description, duration)
     {
         _count = count;
         _prompts = prompts;
-        name = "Welcome to the Listing Activity.";
-        description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+        _name = "Welcome to the Listing Activity.";
+        _description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
         Console.Write("How long, in seconds, would you like for your session? ");
-        duration = int.Parse(Console.ReadLine());
+        _duration = int.Parse(Console.ReadLine());
     }
 
     public static void Run()
     {
         DisplayStartingMessage();
-        ShowSpinner(Activity.GetDuration());
-        GetRandomPrompt();
-        GetListFromUser();
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(GetDuration());
+        while (DateTime.Now < endTime)
+        {
+            ShowSpinner(GetDuration());
+            Console.Write(GetRandomPrompt());
+            GetListFromUser();
+        }
         DisplayEndingMessage();
     }
 
-    public static void GetRandomPrompt()
+    public static string GetRandomPrompt()
     {
         var random = new Random();
-        random.Next(_prompts.Count);
-        return;
+        int index = random.Next(_prompts.Count);
+        return _prompts[index];
     }
 
     public static List<string> GetListFromUser()
@@ -43,7 +48,7 @@ class ListingActivity : Activity
         int listSize = 0;
         while (!end)
         {
-            Console.Write("Please Enter Your List(type quit when finished):");
+            Console.Write("Please Enter Your List (type end when finished):");
             string answer = Console.ReadLine();
             if (answer.ToLower() == "end")
             {
@@ -58,5 +63,13 @@ class ListingActivity : Activity
         string size = "You have {listSize} items in your list.";
         userInput.Add(size);
         return userInput;
+    }
+    public static int GetCount()
+    {
+        return _count;
+    }
+    public static List<string> GetPrompts()
+    {
+        return _prompts;
     }
 }

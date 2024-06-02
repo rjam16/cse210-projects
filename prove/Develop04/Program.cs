@@ -1,6 +1,7 @@
 using System;
+using System.Text.Json;
 
-List<string> _activities = new List<string>();
+List<Activity> _activities = new List<Activity>();
 string reply = "0";
 Console.Write("Welcome to the Mindfulness Program!");
 while (reply != "5")
@@ -10,15 +11,21 @@ while (reply != "5")
     reply = Console.ReadLine();
     if (reply == "1")
     {
+        BreathingActivity a1 = new BreathingActivity(Activity.GetActivityName(), Activity.GetDescription(), Activity.GetDuration());
         BreathingActivity.Run();
+        _activities.Add(a1);
     }
     else if (reply == "2")
     {
+        ReflectingActivity a2 = new ReflectingActivity(Activity.GetActivityName(), Activity.GetDescription(), Activity.GetDuration(), ReflectingActivity.GetPrompts(), ReflectingActivity.GetQuestions());
         ReflectingActivity.Run();
+        _activities.Add(a2);
     }
     else if (reply == "3")
     {
+        ListingActivity a3 = new ListingActivity(Activity.GetActivityName(), Activity.GetDescription(), Activity.GetDuration(), ListingActivity.GetCount(), ListingActivity.GetPrompts());
         ListingActivity.Run();
+        _activities.Add(a3);
     }
     else if (reply == "4")
     {
