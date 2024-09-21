@@ -16,6 +16,10 @@
 		{
 			"name": "cse210-projects",
 			"path": "../.."
+		},
+		{
+			"name": "wdd231",
+			"path": "../../../wdd231"
 		}
 	],
 	"settings": {
